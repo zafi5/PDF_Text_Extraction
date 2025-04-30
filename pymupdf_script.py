@@ -1,17 +1,22 @@
-import fitz  # PyMuPDF
+import fitz
+import time
 
-# PDF path and output text file
-pdf_path = 'DRAFT_NID_2024_Albania_20241231.pdf'
+
+pdf_path = 'Australia National Inventory.pdf'
 output_txt = 'output_pymupdf.txt'
 
-# Open the PDF
+start_time = time.time()
 doc = fitz.open(pdf_path)
 
-# Extract text and write to a text file
+
 with open(output_txt, 'w', encoding='utf-8') as f:
     for page in doc:
-        # Extract text from each page
-        text = page.get_text("text")  # You can also use "blocks" or "dict" for more complex layout
+        text = page.get_text("text")
         f.write(text)
+end_time = time.time()
+
+
+process_time = end_time - start_time
 
 print(f"Text extracted and saved to {output_txt}")
+print(f"Process time: {process_time:.2f} seconds")

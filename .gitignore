@@ -1,7 +1,6 @@
 .idea/
 env/
 venv/
-DRAFT_NID_2024_Albania_20241231.pdf
-output_pdfminersix.txt
-output_pymupdf.txt
+*pyc
+__pycache__/
 
